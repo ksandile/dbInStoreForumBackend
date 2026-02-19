@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import Register from "./pages/Register"; 
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,9 +16,19 @@ function App() {
           path="/login" 
           element={<Login setUser={setUser} />} 
         />
+
+        <Route 
+          path="/register" 
+          element={<Register />} 
+        />
+
         <Route 
           path="/" 
           element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="*" 
+          element={<Navigate to="/login" />} 
         />
       </Routes>
     </Router>

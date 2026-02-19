@@ -9,7 +9,7 @@ const PostCard = ({ post, user, refreshPosts }) => {
     if (post.iUserId === user.id) return alert("Cannot like your own post");
 
     try {
-      await axios.post(`/posts/${post.id}/like/`, { user_id: user.id });
+        await axios.post(`/posts/${post.iPostId}/like/`, { user_id: user.id });
       setLiked(true);
       refreshPosts();
     } catch (err) {
@@ -21,7 +21,7 @@ const PostCard = ({ post, user, refreshPosts }) => {
   const handleFlag = async () => {
     if (user.role !== "moderator") return alert("Only moderators can flag");
     try {
-      await axios.patch(`/posts/${post.id}/flag/`, { flagged_misleading: true });
+        await axios.patch(`/posts/${post.iPostId}/flag/`, { bIsFlagged: true });
       refreshPosts();
     } catch (err) {
       console.error(err);

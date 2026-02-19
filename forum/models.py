@@ -6,7 +6,7 @@ class tUsers(models.Model):
     sUserName = models.CharField(max_length=150)
     sEmail = models.EmailField(unique=True)
     sPasswordHash = models.CharField(max_length=256)
-    sRole = models.CharField(max_length=50)
+    sRole = models.CharField(max_length=50, default="user")
     bIsActive = models.BooleanField(default=True)
     dtCreatedAt = models.DateTimeField(auto_now_add=True)
 

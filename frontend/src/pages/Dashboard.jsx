@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
 import PostCard from "../components/PostCard";
 import CreatePost from "../components/CreatePost";
+import "../styles/Dashboard.css";
 
 const Dashboard = ({ user }) => {
   const [posts, setPosts] = useState([]);
@@ -25,8 +26,13 @@ const Dashboard = ({ user }) => {
       {user && <CreatePost user={user} refreshPosts={fetchPosts} />}
       {posts.length === 0 ? <p>No posts yet</p> :
         posts.map(post => (
-          <PostCard key={post.id} post={post} user={user} refreshPosts={fetchPosts} />
-        ))
+            <PostCard 
+              key={post.iPostId} 
+              post={post} 
+              user={user} 
+              refreshPosts={fetchPosts} 
+            />
+          ))
       }
     </div>
   );
