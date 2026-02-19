@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="afGyUcvAup4CdfY9L8B2-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;" value="&lt;b&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Django + PostgresSQL Intergration Architecture&lt;/font&gt;&lt;/b&gt;" vertex="1">
-          <mxGeometry height="60" width="530" x="140" as="geometry" />
+          <mxGeometry height="60" width="530" x="140" y="10" as="geometry" />
         </mxCell>
         <mxCell id="afGyUcvAup4CdfY9L8B2-2" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;" value="This documment explains how Django interact with PostgreSQL to handle requests, process data, and returns results." vertex="1">
           <mxGeometry height="80" width="810" x="10" y="60" as="geometry" />
@@ -170,10 +170,22 @@
           <mxGeometry height="30" width="315" x="247.5" y="900" as="geometry" />
         </mxCell>
         <mxCell id="yOo8pMUVwn_iRn9JHF80-2" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;" value="" vertex="1">
-          <mxGeometry height="70" width="60" x="53" y="950" as="geometry" />
+          <mxGeometry height="120" width="107" x="53" y="950" as="geometry" />
         </mxCell>
-        <mxCell id="yOo8pMUVwn_iRn9JHF80-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" value="" vertex="1">
-          <mxGeometry height="60" width="120" x="280" y="955" as="geometry" />
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;ORM &amp;amp; Serializer&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="115" width="220" x="270" y="955" as="geometry" />
+        </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-4" parent="1" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shadow=0;dashed=0;strokeWidth=1;shape=mxgraph.android.tab2;strokeColor=#c0c0c0;direction=north;" value="" vertex="1">
+          <mxGeometry height="50" width="66" x="193" y="652.5" as="geometry" />
+        </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" value="" vertex="1">
+          <mxGeometry height="110" width="210" x="590" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;PostgreSQL&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="84" x="64.5" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=light-dark(#2D7600,#7DB174);align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;fillColor=#60a917;" value="&lt;font style=&quot;font-size: 24px; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Django&lt;/font&gt;" vertex="1">
+          <mxGeometry height="45" width="180" x="290" y="955" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
