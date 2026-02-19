@@ -166,6 +166,15 @@
         <mxCell id="afGyUcvAup4CdfY9L8B2-47" parent="1" style="triangle;whiteSpace=wrap;html=1;rounded=0;strokeColor=none;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fillColor=#bac8d3;direction=south;" value="" vertex="1">
           <mxGeometry height="12.5" width="17.5" x="386.25" y="740" as="geometry" />
         </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" value="&lt;b&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;Response Flow Explained&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="315" x="247.5" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-2" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="70" width="60" x="53" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="yOo8pMUVwn_iRn9JHF80-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=default;" value="" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="955" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
