@@ -2,6 +2,9 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
 from django.contrib.auth.hashers import make_password, check_password
+from django.utils.timezone import now
+
+from instoreforum import settings
 
 from .models import tPost, tComments, tLikes, tUsers
 from .serializers import tPostSerializer, tCommentSerializer
@@ -29,10 +32,31 @@ class tPostViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['patch'])
     def flag(self, request, pk=None):
+
+        user_id = request.data.get("user_id")
+        if not user_id:
+            return Response({"error": "user_id is required"}, status=400)
+
+        try:
+            user = tUsers.objects.get(iUserId=user_id)
+        except tUsers.DoesNotExist:
+            return Response({"error": "User not found"}, status=404)
+
+        if user.sRole.lower() != "moderator":
+            return Response(
+                {"error": "Only moderators can flag posts"},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
         post = self.get_object()
+
         post.bIsFlagged = request.data.get("bIsFlagged", True)
+        post.iFlaggedBy = user
+        post.dtFlaggedAt = now()
+
         post.save()
-        return Response({"success": "Post flagged"})
+        serializer = tPostSerializer(post)
+        return Response(serializer.data)
 
     @action(detail=True, methods=['post'])
     def comment(self, request, pk=None):
@@ -57,19 +81,24 @@ def register(request):
     name = request.data.get("name")
     email = request.data.get("email")
     password = request.data.get("password")
+    role = request.data.get("role", "user")
+    mod_secret = request.data.get("mod_secret", None)
 
     if not name or not email or not password:
         return Response({"error": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
 
     if tUsers.objects.filter(sEmail=email).exists():
         return Response({"error": "Email already registered"}, status=status.HTTP_400_BAD_REQUEST)
+    if role.lower() == "moderator":
+        if mod_secret != settings.MODERATOR_SECRET:
+            return Response({"error": "Invalid moderator secret"}, status=status.HTTP_403_FORBIDDEN)
 
     hashed_password = make_password(password)
     user = tUsers.objects.create(
         sUserName=name,
         sEmail=email,
         sPasswordHash=hashed_password,
-        sRole="user"
+        sRole=role.lower()
     )
     return Response({
         "id": user.iUserId,

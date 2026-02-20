@@ -1,0 +1,22 @@
+.post-card {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.post-card.flagged {
+    background-color: #ffe5e5; 
+    border: 1px solid red;
+}
+
+.post-card h3.flagged-title {
+    color: red;
+}
+
+.post-card .flagged-text {
+    color: red;
+    font-weight: bold;
+}
