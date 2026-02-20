@@ -4,18 +4,17 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background: #f0f2f5; /* light background for contrast */
+    background: #f0f2f5;
     min-height: 100vh;
 }
 
-/* Post card styling */
 .post-card {
     width: 100%;
     max-width: 500px;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.25); /* translucent glass effect */
+    background: rgba(255, 255, 255, 0.25); 
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -80,4 +79,98 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.post-vibe {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.comments-box {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* .comment {
+    background: rgba(255,255,255,0.3);
+    padding: 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+} */
+
+.comment {
+    background: rgba(255,255,255,0.3);
+    padding: 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    text-align: left;      /* <-- align text to the start */
+    display: flex;         /* optional for more control */
+    flex-direction: column; /* stack name and content vertically */
+    gap: 4px;              /* small gap between name and content */
+}
+
+.comment strong {
+    font-weight: bold;
+}
+
+.comment-header {
+    font-weight: bold;
+    text-align: left;
+}
+
+.comment-body {
+    text-align: left;
+    font-size: 14px;
+}
+
+.comment-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-body {
+    font-size: 14px;
+}
+
+.comment-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.comment-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.comment-input button {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.flag-icon {
+    position: absolute;
+    top: 10px;   
+    left: 10px;   
+    cursor: pointer;
+    font-size: 28px;
+    z-index: 10; 
 }

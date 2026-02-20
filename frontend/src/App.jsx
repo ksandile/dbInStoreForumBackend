@@ -10,18 +10,16 @@ function App() {
 
   return (
     <Router>
-      <Header user={user} />
+      <Header user={user} setUser={setUser} />  
       <Routes>
         <Route 
           path="/login" 
           element={<Login setUser={setUser} />} 
         />
-
         <Route 
           path="/register" 
           element={<Register />} 
         />
-
         <Route 
           path="/" 
           element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} 
