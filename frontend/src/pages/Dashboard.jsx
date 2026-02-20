@@ -21,19 +21,31 @@ const Dashboard = ({ user }) => {
   }, []);
 
   return (
-    <div>
-      <h2>Campaign Discussions</h2>
-      {user && <CreatePost user={user} refreshPosts={fetchPosts} />}
-      {posts.length === 0 ? <p>No posts yet</p> :
-        posts.map(post => (
-            <PostCard 
-              key={post.iPostId} 
-              post={post} 
-              user={user} 
-              refreshPosts={fetchPosts} 
+    <div className="dashboard-page">
+      <h2 className="dashboard-header">Campaign Discussions</h2>
+
+      {/* Centered CreatePost Section */}
+      {user && (
+        <div className="create-post-container">
+          <CreatePost user={user} refreshPosts={fetchPosts} />
+        </div>
+      )}
+
+      {/* Centered Posts */}
+      <div className="posts-container">
+        {posts.length === 0 ? (
+          <p>No posts yet</p>
+        ) : (
+          posts.map(post => (
+            <PostCard
+              key={post.iPostId}
+              post={post}
+              user={user}
+              refreshPosts={fetchPosts}
             />
           ))
-      }
+        )}
+      </div>
     </div>
   );
 };

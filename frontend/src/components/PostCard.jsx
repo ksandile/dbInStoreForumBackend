@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "../api/axios";
 import "../styles/PostCard.css";
+import { IonIcon } from '@ionic/react';
+import { heart, heartOutline } from 'ionicons/icons';
 
 const PostCard = ({ post, user, refreshPosts }) => {
   const [liked, setLiked] = useState(false);
@@ -10,7 +12,7 @@ const PostCard = ({ post, user, refreshPosts }) => {
     if (post.iUserId === user.id) return alert("Cannot like your own post");
 
     try {
-        await axios.post(`/posts/${post.iPostId}/like/`, { user_id: user.id });
+      await axios.post(`/posts/${post.iPostId}/like/`, { user_id: user.id });
       setLiked(true);
       refreshPosts();
     } catch (err) {
@@ -34,14 +36,36 @@ const PostCard = ({ post, user, refreshPosts }) => {
   };
 
   return (
-    <div className={`post-card ${post.bFlaggedMisleading ? "flagged" : ""}`}>
-      <h3 className={post.bFlaggedMisleading ? "flagged-title" : ""}>
-        {post.sContent}
-      </h3>
-      <p>{post.sContent}</p>
-      <p><b>Likes:</b> {post.likes_count}</p>
+    // <div className={`post-card ${post.bFlaggedMisleading ? "flagged" : ""}`}>
+    //   <p>{post.sContent}</p>
 
-      <button onClick={handleLike} disabled={liked}>Like</button>
+    //   <div className="like-section" onClick={handleLike} style={{ cursor: 'pointer' }}>
+    //     <IonIcon icon={heartOutline} style={{ fontSize: "24px", color: liked ? "red" : "black" }} />
+    //     <span style={{ marginLeft: "8px" }}>{post.likes_count + (liked ? 1 : 0)}</span>
+    //   </div>
+
+    //   {user?.role === "moderator" && !post.bFlaggedMisleading && (
+    //     <button onClick={handleFlag}>Flag Misleading</button>
+    //   )}
+
+    //   {post.bFlaggedMisleading && (
+    //     <span className="flagged-text">Flagged by Moderator/AI</span>
+    //   )}
+    // </div>
+
+    <div className={`post-card ${post.bFlaggedMisleading ? "flagged" : ""}`}>
+
+      <p>{post.sContent}</p>
+
+      <div className="like-section" onClick={handleLike}>
+        <IonIcon
+          icon={liked ? heart : heartOutline}
+          style={{
+            color: liked ? "red" : "black",
+          }}
+        />
+        <span>{post.likes_count + (liked ? 1 : 0)}</span>
+      </div>
 
       {user?.role === "moderator" && !post.bFlaggedMisleading && (
         <button onClick={handleFlag}>Flag Misleading</button>
@@ -54,4 +78,4 @@ const PostCard = ({ post, user, refreshPosts }) => {
   );
 };
 
-export default PostCard;
+export default PostCard; 

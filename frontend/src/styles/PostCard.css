@@ -1,22 +1,83 @@
-.post-card {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: white;
-    transition: all 0.3s ease;
+/* Container to center all post cards */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f0f2f5; /* light background for contrast */
+    min-height: 100vh;
 }
 
+/* Post card styling */
+.post-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.25); /* translucent glass effect */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Hover effect */
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+/* Flagged post */
 .post-card.flagged {
-    background-color: #ffe5e5; 
+    background-color: rgba(255, 230, 230, 0.4); 
     border: 1px solid red;
 }
 
-.post-card h3.flagged-title {
-    color: red;
-}
-
+/* Flagged text */
 .post-card .flagged-text {
     color: red;
     font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Like section */
+.like-section {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.like-section:hover {
+    transform: scale(1.1);
+}
+
+/* Heart icon styling */
+.like-section ion-icon {
+    font-size: 28px;
+    margin-right: 8px;
+}
+
+/* Flag button styling */
+button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }

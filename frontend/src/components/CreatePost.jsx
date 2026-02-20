@@ -3,9 +3,8 @@ import axios from "../api/axios";
 import "../styles/CreatePost.css";
 
 const CreatePost = ({ user, refreshPosts }) => {
-  const [title, setTitle] = useState("");
+  const [setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [campaignType, setCampaignType] = useState("Entrance Screen");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,12 +39,12 @@ const CreatePost = ({ user, refreshPosts }) => {
             onChange={(e) => setContent(e.target.value)}
             required
         />
-        <select value={campaignType} onChange={(e) => setCampaignType(e.target.value)}>
+        {/* <select value={campaignType} onChange={(e) => setCampaignType(e.target.value)}>
             <option>Entrance Screen</option>
             <option>End Cap</option>
             <option>Totem Display</option>
             <option>Aisle</option>
-        </select>
+        </select> */}
         <button type="submit">Post</button>
     </form>
 
