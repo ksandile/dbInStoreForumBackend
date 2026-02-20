@@ -9,6 +9,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+  const [role, setRole] = useState("user");
+  const [modSecret, setModSecret] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,8 +22,7 @@ const Register = () => {
 
     try {
       // Call backend register API
-      await axios.post("/register/", { name, email, password });
-
+      await axios.post("/register/", { name, email, password, role, mod_secret: modSecret });
       alert("Registration successful! Please login.");
       navigate("/login"); // Redirect to login page
     } catch (err) {
@@ -62,6 +63,20 @@ const Register = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+        <label>Role:</label>
+        <select value={role} onChange={(e) => setRole(e.target.value)} required>
+          <option value="user">User</option>
+          <option value="moderator">Moderator</option>
+        </select>
+        {role === "moderator" && (
+          <input
+            type="password"
+            placeholder="Moderator Secret"
+            value={modSecret}
+            onChange={(e) => setModSecret(e.target.value)}
+            required
+          />
+        )}
         <button type="submit">Register</button>
       </form>
 

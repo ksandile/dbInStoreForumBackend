@@ -19,6 +19,18 @@ class tPost(models.Model):
     iUserId = models.ForeignKey(tUsers, on_delete=models.CASCADE)
     sContent = models.TextField()
     bIsFlagged = models.BooleanField(default=False)
+    iFlaggedBy = models.ForeignKey(
+        tUsers,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='flagged_posts'
+    )
+
+    dtFlaggedAt = models.DateTimeField(null=True, blank=True)
+
+    fAiConfidenceScore = models.FloatField(default=0.0)
+    dtCreatedAt = models.DateTimeField(auto_now_add=True)
     fAiConfidenceScore = models.FloatField(default=0.0)
     dtCreatedAt = models.DateTimeField(auto_now_add=True)
 
