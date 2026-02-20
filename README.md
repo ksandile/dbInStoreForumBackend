@@ -6,3 +6,14 @@
 
 ## Then type the below default Python 2:
 ### python manage.py runserver
+
+# How to Run FrontEnd On macOS
+
+## First Add A New Terminal.
+
+## Then type the below command to navigate to Frontnend folder:
+### cd frontend
+### then your terminal will look like: (venv) cash@Nicole frontend %
+
+## Then to start the application type:
+### npm start
