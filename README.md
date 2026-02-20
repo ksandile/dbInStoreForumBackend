@@ -2,6 +2,7 @@
 
 #### Activate the virtual enviroment(macOS):
 source venv/bin/activate
+
 Your terminal will change to: (venv) cash@Nicole dbInStoreForumBackend %
 
 #### Then type the below default Python 2:
