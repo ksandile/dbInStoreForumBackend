@@ -13,9 +13,7 @@ const CreatePost = ({ user, refreshPosts }) => {
 
     try {
       await axios.post("/posts/", {
-        sTitle: title,
         sContent: content,
-        campaign_type: campaignType,
         iUserId: user.id
       });
       setTitle("");
@@ -29,13 +27,13 @@ const CreatePost = ({ user, refreshPosts }) => {
 
   return (
     <form onSubmit={handleSubmit} className="create-post-page">
-        <input
+        {/* <input
             type="text"
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-        />
+        /> */}
         <textarea
             placeholder="Content"
             value={content}

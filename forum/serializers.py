@@ -7,8 +7,11 @@ class tPostSerializer(serializers.ModelSerializer):
     likes_count = serializers.SerializerMethodField()
     bFlaggedMisleading = serializers.SerializerMethodField()
     iUserId = serializers.PrimaryKeyRelatedField(queryset=tUsers.objects.all())
-    iFlaggedBy = serializers.PrimaryKeyRelatedField(queryset=tUsers.objects.all(), allow_null=True)
-
+    iFlaggedBy = serializers.PrimaryKeyRelatedField(
+        queryset=tUsers.objects.all(),
+        allow_null=True,
+        required=False
+    )
     class Meta:
         model = tPost
         fields = [
