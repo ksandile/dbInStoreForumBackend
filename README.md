@@ -18,3 +18,14 @@ Then your terminal will look like: (venv) cash@Nicole frontend %
 
 #### Then to start the application type:
 npm start
+
+
+# How to create moderators manually.
+
+### Use Django shell
+python manage.py shell
+
+Then write: from forum.models import tUsers
+            user = tUsers.objects.get(sMail="mod@gmail.com)
+            user.sRole = "moderator"
+            user.save()
