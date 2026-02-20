@@ -8,6 +8,7 @@ from instoreforum import settings
 
 from .models import tPost, tComments, tLikes, tUsers
 from .serializers import tPostSerializer, tCommentSerializer
+from .ai_moderation import moderate_post
 
 # -----------------------
 # Post ViewSet
@@ -15,6 +16,10 @@ from .serializers import tPostSerializer, tCommentSerializer
 class tPostViewSet(viewsets.ModelViewSet):
     queryset = tPost.objects.all()
     serializer_class = tPostSerializer
+    def perform_create(self, serializer):
+        post = serializer.save()
+
+        moderate_post(post)
 
     @action(detail=True, methods=['post'])
     def like(self, request, pk=None):
