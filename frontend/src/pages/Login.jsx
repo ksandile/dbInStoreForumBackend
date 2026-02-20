@@ -11,12 +11,12 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Call backend login API
       const res = await axios.post("/login/", { email, password });
-
-      // Backend should return user info {id, name, role}
+  
+      localStorage.setItem("user", JSON.stringify(res.data));
+  
       setUser(res.data);
-      navigate("/"); // navigate to dashboard or home
+      navigate("/"); 
     } catch (err) {
       console.error(err);
       alert("Invalid email or password");

@@ -31,8 +31,6 @@ class tPost(models.Model):
 
     fAiConfidenceScore = models.FloatField(default=0.0)
     dtCreatedAt = models.DateTimeField(auto_now_add=True)
-    fAiConfidenceScore = models.FloatField(default=0.0)
-    dtCreatedAt = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Post {self.iPostId} by User {self.iUserId}"

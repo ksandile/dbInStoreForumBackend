@@ -21,9 +21,21 @@ class tPostViewSet(viewsets.ModelViewSet):
 
         moderate_post(post)
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        user_id = self.request.headers.get("X-User-Id")
+        if user_id:
+            try:
+                context['user'] = tUsers.objects.get(iUserId=int(user_id))
+            except tUsers.DoesNotExist:
+                context['user'] = None
+        else:
+            context['user'] = None
+        return context
+    
     @action(detail=True, methods=['post'])
     def like(self, request, pk=None):
-        user_id = request.data.get('user_id')
+        user_id = int(request.data.get('user_id'))
         post = self.get_object()
 
         if post.iUserId.iUserId == int(user_id):
@@ -63,18 +75,29 @@ class tPostViewSet(viewsets.ModelViewSet):
         serializer = tPostSerializer(post)
         return Response(serializer.data)
 
-    @action(detail=True, methods=['post'])
+    @action(detail=True, methods=['get', 'post'])
     def comment(self, request, pk=None):
         post = self.get_object()
-        user_id = request.data.get('user_id')
-        content = request.data.get('content')
 
-        comment = tComments.objects.create(
-            iPostId=post,
-            iUserId=tUsers.objects.get(iUserId=user_id),
-            sContent=content
-        )
-        serializer = tCommentSerializer(comment)
+        if request.method == "POST":
+            user_id = int(request.data.get('user_id'))
+            content = request.data.get('content')
+
+            # Create comment
+            comment = tComments.objects.create(
+                iPostId=post,
+                iUserId=tUsers.objects.get(iUserId=user_id),
+                sContent=content
+            )
+
+            # Fetch the comment with related user
+            comment = tComments.objects.select_related('iUserId').get(iCommentId=comment.iCommentId)
+            serializer = tCommentSerializer(comment)
+            return Response(serializer.data)
+
+        # GET request → return all comments for this post
+        comments = tComments.objects.filter(iPostId=post).select_related('iUserId').order_by("dtCreatedAt")
+        serializer = tCommentSerializer(comments, many=True)
         return Response(serializer.data)
 
 

@@ -3,7 +3,6 @@ import axios from "../api/axios";
 import "../styles/CreatePost.css";
 
 const CreatePost = ({ user, refreshPosts }) => {
-  const [setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
@@ -15,7 +14,6 @@ const CreatePost = ({ user, refreshPosts }) => {
         sContent: content,
         iUserId: user.id
       });
-      setTitle("");
       setContent("");
       refreshPosts();
     } catch (err) {
