@@ -72,6 +72,11 @@ const PostCard = ({ post, user, refreshPosts }) => {
     <div className={`post-card ${post.bFlaggedMisleading ? "flagged" : ""}`}>
       <div className="post-content">
         <p>{post.sContent}</p>
+        {post.bIsFlagged && post.iFlaggedBy === null && post.fAiConfidenceScore && (
+          <div className="ai-flag-info">
+            AI Confidence: {post.fAiConfidenceScore.toFixed(2)}
+          </div>
+        )}
       </div>
 
       <div className="post-vibe">

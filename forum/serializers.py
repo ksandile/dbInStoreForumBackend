@@ -20,6 +20,7 @@ class tPostSerializer(serializers.ModelSerializer):
             'bFlaggedMisleading',
             'likes_count',
             'comment_count',
+            "fAiConfidenceScore",
             'liked_by_user',
             'vibe',
             'dtCreatedAt'
