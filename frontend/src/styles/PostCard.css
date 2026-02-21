@@ -2,8 +2,8 @@
 .posts-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
+   
+    
     background: #f0f2f5;
     min-height: 100vh;
 }
@@ -20,7 +20,7 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     transition: all 0.3s ease;
-    text-align: center;
+   
 }
 
 /* Hover effect */
@@ -115,10 +115,10 @@ button:hover {
     padding: 10px;
     border-radius: 12px;
     backdrop-filter: blur(6px);
-    text-align: left;      /* <-- align text to the start */
-    display: flex;         /* optional for more control */
-    flex-direction: column; /* stack name and content vertically */
-    gap: 4px;              /* small gap between name and content */
+    text-align: left;      
+    display: flex;         
+    flex-direction: column; 
+    gap: 4px;              
 }
 
 .comment strong {

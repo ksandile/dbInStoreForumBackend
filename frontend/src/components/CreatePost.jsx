@@ -23,29 +23,18 @@ const CreatePost = ({ user, refreshPosts }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="create-post-page">
-        {/* <input
-            type="text"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-        /> */}
+    <div className="create-post-wrapper">
+      <h2 className="create-post-header">Start a Discussion</h2>
+      <form onSubmit={handleSubmit} className="create-post-form">
         <textarea
-            placeholder="Content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
+          placeholder="Share your thoughts..."
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
         />
-        {/* <select value={campaignType} onChange={(e) => setCampaignType(e.target.value)}>
-            <option>Entrance Screen</option>
-            <option>End Cap</option>
-            <option>Totem Display</option>
-            <option>Aisle</option>
-        </select> */}
         <button type="submit">Post</button>
-    </form>
-
+      </form>
+    </div>
   );
 };
 
