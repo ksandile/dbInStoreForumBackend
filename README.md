@@ -52,7 +52,7 @@ Frontend runs on:
 
 http://localhost:3000
 
-4. How to Run the Project (macOS)
+## 4. How to Run the Project (macOS)
 Step 1 – Run Backend
 
 Open Terminal:
@@ -80,7 +80,7 @@ http://localhost:3000/
 
 Keep both terminals open while using the application.
 
-5. How to Run the Project (Windows)
+## 5. How to Run the Project (Windows)
 Step 1 – Run Backend
 
 Open Command Prompt or PowerShell:
