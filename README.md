@@ -166,13 +166,6 @@ python manage.py loaddata forum/dummy_data.json
 
 This ensures anyone cloning the repo can quickly load the same test data.  
 
----
-
-If you want, I can write a **full example README snippet** including your dummy data instructions and the steps for creating superuser, running migrations, etc., so it’s ready to go.  
-
-Do you want me to do that?
-
-
 
 
 
