@@ -114,7 +114,7 @@ python manage.py loaddata forum/dummy_data.json
 
 ---
 
-## 6. Create Moderators Manually (Optional)
+## 6. Create Moderators Manually
 
 ```bash
 python manage.py shell
@@ -212,4 +212,4 @@ The API allows developers to interact with the forum without the frontend.
 2. Choose **Collection v2.1**
 3. Save as `ForumPublicAPI.postman_collection.json`
 
-This file is **submission-ready**.
+**submission-ready**.
