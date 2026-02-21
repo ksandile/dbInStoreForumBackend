@@ -19,7 +19,7 @@ const Header = ({ user, setUser }) => {
         {user ? (
           <>
             <Link to="/" className="nav-link">Dashboard</Link>
-            <Link to="/posts" className="nav-link">Posts</Link>
+            {/* <Link to="/posts" className="nav-link">Posts</Link> */}
             <span className="greeting">
               Welcome, {user.name} ({user.role})
             </span>
