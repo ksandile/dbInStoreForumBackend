@@ -37,14 +37,23 @@ Used for third-party API interaction.
 ### macOS / Linux
 
 cd dbInStoreForumBackend
+
 source venv/bin/activate
+
 pip install -r requirements.txt
-Windows
+
+## Windows
+
 cd dbInStoreForumBackend
+
 venv\Scripts\activate
+
 pip install -r requirements.txt
+
 3. Setup Frontend
+4. 
 cd frontend
+
 npm install
 
 Frontend runs on:
@@ -87,7 +96,7 @@ Keep both terminals open while using the application.
 ### 5. How to Run the Project (Windows)
 Step 1 – Run Backend
 
-Open Command Prompt or PowerShell then one by one run these command:
+Open Command Prompt or PowerShell then one by one run these commands:
 
 cd dbInStoreForumBackend
 
@@ -99,13 +108,11 @@ Backend will run at:
 
 http://127.0.0.1:8000/
 
-Step 2 – Open Second Command Prompt then one by one run these command:
-
-cd dbInStoreForumBackend
-
-venv\Scripts\activate
+Step 2 – Open Second Command Prompt then one by one run these commands:
 
 cd frontend
+
+venv\Scripts\activate
 
 npm start
 
