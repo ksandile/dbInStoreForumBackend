@@ -65,7 +65,7 @@ Populate the database with pre-created users, posts, and moderators:
 
 python manage.py loaddata forum/dummy_data.json
 
-✅ Ensure dummy_data.json exists in /forum/ and is committed to the repo.
+Ensure dummy_data.json exists in /forum/ and is committed to the repo.
 
 6. Create Moderators Manually (Optional)
 python manage.py shell
@@ -230,8 +230,8 @@ Click again → hides comments
 
 10. Additional Documentation & Diagram
 
-Project Diagram: [Insert Diagram Link Here](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.drawio&dark=auto#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fksandile%2FdbInStoreForumBackend%2Fmain%2FUntitled%2520Diagram.drawio)
+Project Diagram: [[Insert Diagram Link Here](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.drawio&dark=auto#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fksandile%2FdbInStoreForumBackend%2Fmain%2FUntitled%2520Diagram.drawio)]
 
 
-Project Documentation / Specs: [Insert Doc Link Here](https://docs.google.com/document/d/1lQilOWOf6zLZh84O7D1t_nnjqi4Cq3UEombg5DWVYvs/edit?usp=sharing)
+Project Documentation / Specs: [[Insert Doc Link Here](https://docs.google.com/document/d/1lQilOWOf6zLZh84O7D1t_nnjqi4Cq3UEombg5DWVYvs/edit?usp=sharing)]
 
