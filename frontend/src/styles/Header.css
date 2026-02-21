@@ -1,9 +1,9 @@
 .header {
-  position: fixed;       /* fixes header at top */
+  position: fixed;      
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;         /* make sure it stays above content */
+  z-index: 1000;        
   display: flex;
   justify-content: space-between;
   align-items: center;

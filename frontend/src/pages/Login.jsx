@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "../api/axios";
+import logo from "../assets/logo.png"; // make sure this path is correct
 import "../styles/Login.css";
 
 const Login = ({ setUser }) => {
@@ -12,9 +13,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     try {
       const res = await axios.post("/login/", { email, password });
-  
       localStorage.setItem("user", JSON.stringify(res.data));
-  
       setUser(res.data);
       navigate("/"); 
     } catch (err) {
@@ -25,7 +24,11 @@ const Login = ({ setUser }) => {
 
   return (
     <div className="login-page">
-      <h2>Login</h2>
+      <div className="login-header">
+        <img src={logo} alt="InStoreForum AI Logo" className="login-logo" />
+        <h1 className="company-name">The CheckOut Chat</h1>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <input 
           type="email" 
@@ -46,7 +49,7 @@ const Login = ({ setUser }) => {
 
       <p>
         Don't have an account?{" "}
-        <Link to="/register" style={{ color: "blue", textDecoration: "underline" }}>
+        <Link to="/register" className="register-link">
           Register here
         </Link>
       </p>
