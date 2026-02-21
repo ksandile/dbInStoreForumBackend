@@ -212,4 +212,4 @@ The API allows developers to interact with the forum without the frontend.
 2. Choose **Collection v2.1**
 3. Save as `ForumPublicAPI.postman_collection.json`
 
-**submission-ready**.
+**END**.
