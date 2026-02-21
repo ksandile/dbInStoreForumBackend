@@ -17,7 +17,7 @@
 * **Backend:** Django + Django REST Framework
 
   * Provides a robust, secure, and scalable API for handling forum posts, users, and authentication.
-* **Database:** PostgreSQL (or SQLite for testing)
+* **Database:** PostgreSQL 
 
   * Relational DB is ideal for structured data such as users, posts, and roles.
 * **Frontend:** React
