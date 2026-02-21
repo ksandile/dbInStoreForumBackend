@@ -54,10 +54,12 @@ http://localhost:3000
 ### 4. How to Run the Project (macOS)
 Step 1 – Run Backend
 
-Open Terminal:
+Open Terminal then one by one run these command:
 
 cd dbInStoreForumBackend
+
 source venv/bin/activate
+
 python manage.py runserver
 
 Backend will run at:
@@ -66,11 +68,14 @@ http://127.0.0.1:8000/
 
 Step 2 – Open Second Terminal (Important)
 
-Open a new terminal window:
+Open a new terminal window then one by one run these command:
 
 cd dbInStoreForumBackend
+
 source venv/bin/activate
+
 cd frontend
+
 npm start
 
 Frontend will run at:
@@ -82,20 +87,26 @@ Keep both terminals open while using the application.
 ### 5. How to Run the Project (Windows)
 Step 1 – Run Backend
 
-Open Command Prompt or PowerShell:
+Open Command Prompt or PowerShell then one by one run these command:
 
 cd dbInStoreForumBackend
+
 venv\Scripts\activate
+
 python manage.py runserver
 
 Backend will run at:
 
 http://127.0.0.1:8000/
 
-Step 2 – Open Second Command Prompt
+Step 2 – Open Second Command Prompt then one by one run these command:
+
 cd dbInStoreForumBackend
+
 venv\Scripts\activate
+
 cd frontend
+
 npm start
 
 Frontend will run at:
@@ -113,7 +124,7 @@ Ensure:
 
 exists and is committed.
 
-7. Create Moderators Manually (Optional)
+7. Create Moderators Manually
 python manage.py shell
 
 Inside shell:
