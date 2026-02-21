@@ -6,29 +6,29 @@
 2. [Setup Backend](#2-setup-backend)  
 3. [Setup Frontend](#3-setup-frontend)  
 4. [How to Run the Project (macOS)](#4-how-to-run-the-project-macos)  
-5. [Load Dummy Data](#5-load-dummy-data)  
-6. [Create Moderators Manually (Optional)](#6-create-moderators-manually-optional)  
-7. [Public API for 3rd-Party Users](#7-public-api-for-3rd-party-users)  
-8. [Login Page Setup](#8-login-page-setup)  
-9. [Comments Feature](#9-comments-feature)  
-10. [Additional Documentation & Diagram](#10-additional-documentation--diagram)
+5. [How to Run the Project (Windows)](#5-how-to-run-the-project-windows)  
+6. [Load Dummy Data](#6-load-dummy-data)  
+7. [Create Moderators Manually (Optional)](#7-create-moderators-manually-optional)  
+8. [Public API for 3rd-Party Users](#8-public-api-for-3rd-party-users)  
+9. [Login Page Setup](#9-login-page-setup)  
+10. [Comments Feature](#10-comments-feature)  
+11. [Additional Documentation & Diagram](#11-additional-documentation--diagram)
 
 ---
 
 ## 1. Tech Stack Justification
 
-* **Backend:** Django + Django REST Framework  
-  * Provides a robust, secure, and scalable API for handling forum posts, users, and authentication.  
+**Backend:** Django + Django REST Framework  
+Provides secure and scalable API development.
 
-* **Database:** PostgreSQL  
-  * Relational database ideal for structured data such as users, posts, likes, comments, and roles.  
+**Database:** PostgreSQL  
+Relational database for structured forum data.
 
-* **Frontend:** React  
-  * Fast and responsive UI.  
-  * Seamless integration with Django REST API.  
+**Frontend:** React  
+Fast and responsive user interface.
 
-* **API Testing:** Postman  
-  * Enables third-party developers to interact with the API independently of the frontend.
+**API Testing:** Postman  
+Used for third-party API interaction.
 
 ---
 
@@ -48,197 +48,122 @@ pip install -r requirements.txt
 cd frontend
 npm install
 
-Frontend will run on:
+Frontend runs on:
 
 http://localhost:3000
 
 4. How to Run the Project (macOS)
-Step 1: Run the Backend
+Step 1 – Run Backend
 
-Open Terminal and navigate to the backend folder:
+Open Terminal:
 
 cd dbInStoreForumBackend
-
-Activate the virtual environment:
-
 source venv/bin/activate
-
-Run the Django server:
-
 python manage.py runserver
 
-Backend will be available at:
+Backend will run at:
 
 http://127.0.0.1:8000/
 
-Step 2: Open a Second Terminal
+Step 2 – Open Second Terminal (Important)
 
-Open a new terminal window.
-
-Navigate again to the backend folder:
+Open a new terminal window:
 
 cd dbInStoreForumBackend
-
-Activate the virtual environment again:
-
 source venv/bin/activate
-Step 3: Run the Frontend
-
-From the second terminal:
-
 cd frontend
 npm start
 
-Frontend will be available at:
+Frontend will run at:
 
 http://localhost:3000/
 
-Important
+Keep both terminals open while using the application.
 
-Backend must be running before starting the frontend.
+5. How to Run the Project (Windows)
+Step 1 – Run Backend
 
-Keep both terminal windows open while using the application.
+Open Command Prompt or PowerShell:
 
-5. Load Dummy Data
+cd dbInStoreForumBackend
+venv\Scripts\activate
+python manage.py runserver
 
-Populate the database with pre-created users, posts, and moderators:
+Backend will run at:
 
+http://127.0.0.1:8000/
+
+Step 2 – Open Second Command Prompt
+cd dbInStoreForumBackend
+venv\Scripts\activate
+cd frontend
+npm start
+
+Frontend will run at:
+
+http://localhost:3000/
+
+Keep both terminals open while using the system.
+
+6. Load Dummy Data
 python manage.py loaddata forum/dummy_data.json
 
-Ensure dummy_data.json exists inside:
+Ensure:
 
-/forum/
+/forum/dummy_data.json
 
-and is committed to the repository.
+exists and is committed.
 
-6. Create Moderators Manually (Optional)
+7. Create Moderators Manually (Optional)
 python manage.py shell
 
-Then inside the shell:
+Inside shell:
 
 from forum.models import tUsers
 user = tUsers.objects.get(sEmail="mod@gmail.com")
 user.sRole = "moderator"
 user.save()
-7. Public API for 3rd-Party Users
+8. Public API for 3rd-Party Users
 
-The API allows developers to interact with the forum without using the frontend.
+Ensure backend is running before testing.
 
-7.1 Ensure Backend is Running
-python manage.py runserver
-7.2 Install Postman
+Example Endpoints
 
-Download Postman and use it to send HTTP requests to:
-
-http://127.0.0.1:8000/
-
-7.3 Create Postman Collection
-
-Click New → Collection
-
-Name it: Forum Public API
-
-Save
-
-7.4 Example API Requests
 Register
-
 POST
 http://127.0.0.1:8000/api/register/
 
-Headers:
-
-Content-Type: application/json
-
-Body:
-
-{
-  "username": "yourusername",
-  "password": "yourpassword"
-}
 Login
-
 POST
 http://127.0.0.1:8000/api/login/
 
-Body:
-
-{
-  "username": "yourusername",
-  "password": "yourpassword"
-}
-
-Response returns a token.
-
 Get Posts
-
 GET
 http://127.0.0.1:8000/api/posts/
 
-Headers:
+Header:
 
 Authorization: Token YOUR_TOKEN
-Create Post
 
+Create Post
 POST
 http://127.0.0.1:8000/api/posts/
 
-Headers:
-
-Authorization: Token YOUR_TOKEN
-Content-Type: application/json
-
-Body:
-
-{
-  "sTitle": "Post from Postman",
-  "sContent": "External app created this"
-}
 Like Post
-
 POST
 http://127.0.0.1:8000/api/posts/<POST_ID>/like/
 
-Headers:
-
-Authorization: Token YOUR_TOKEN
 Comment Post
-
 POST
 http://127.0.0.1:8000/api/posts/<POST_ID>/comments/
 
-Body:
-
-{
-  "sContent": "Your comment here"
-}
-Flag Post (Moderator Only)
-
+Flag Post
 PATCH
 http://127.0.0.1:8000/api/posts/<POST_ID>/flag/
 
-Body:
+9. Login Page Setup
 
-{
-  "bFlaggedMisleading": true
-}
-7.5 Export Postman Collection
-
-Right-click Forum Public API
-
-Click Export
-
-Choose Collection v2.1
-
-Save as:
-
-ForumPublicAPI.postman_collection.json
-
-Upload it to GitHub.
-
-8. Login Page Setup
-
-The login page includes:
+Login page includes:
 
 Application logo
 
@@ -248,22 +173,21 @@ Example:
 
 InStoreForum AI
 
-9. Comments Feature
+10. Comments Feature
 
-Comments are collapsible on the frontend.
+Comments are collapsible.
 
 Default display:
 
 View Comments ▼
 
-Click to expand comments
+Click to expand.
+Click again to collapse.
 
-Click again to hide comments
-
-10. Additional Documentation & Diagram
+11. Additional Documentation & Diagram
 
 Project Diagram:
 https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.drawio&dark=auto#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fksandile%2FdbInStoreForumBackend%2Fmain%2FUntitled%2520Diagram.drawio
 
-Project Documentation / Specs:
+Project Documentation:
 https://docs.google.com/document/d/1lQilOWOf6zLZh84O7D1t_nnjqi4Cq3UEombg5DWVYvs/edit?usp=sharing
